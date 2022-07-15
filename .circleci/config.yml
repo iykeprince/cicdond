@@ -15,6 +15,15 @@ jobs:
       - run:
           name: "print hello"
           command: "echo $CODE"
+  print_world:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - checkout
+      - run:
+          name: "print world"
+          command: |
+            "echo world"
   say-hello:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
