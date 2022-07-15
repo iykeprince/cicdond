@@ -2,8 +2,11 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
+command:
+  print_pipeline_id:
+    steps:
+      - run: echo ${CIRCLECI_WORKFLOW_ID}
+
 jobs:
   print_hello:
     docker:
@@ -50,10 +53,7 @@ jobs:
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
-      - checkout
-      - run:
-          name: "Say hello"
-          command: echo $CIRCLE_WORKFLOW_ID
+      - print_pipeline_id
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
