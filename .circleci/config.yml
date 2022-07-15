@@ -8,7 +8,7 @@ commands:
       id:
         type: string
     steps:
-      - run: echo <<parameters.id>>
+      - run: echo pipeline id <<parameters.id>>
 
 jobs:
   print_hello:
